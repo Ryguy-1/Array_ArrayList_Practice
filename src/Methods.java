@@ -46,8 +46,8 @@ public class Methods {
 	 *    same number of characters, it will return the first one
 	 *    in list.
 	 */
-	public static int findShortestString(ArrayList<String> list) {
-		return 0;
+	public static String findShortestString(ArrayList<String> list) {
+		return null;
 	}
 	
 	/*
