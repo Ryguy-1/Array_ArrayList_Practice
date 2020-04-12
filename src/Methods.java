@@ -6,7 +6,12 @@ public class Methods {
 	 * returns -1 if elem is not found in arr.
 	 */
 	public static int findElementIntArray(int[] arr, int elem) {
-		return 0;
+		for (int i = 0; i < arr.length; i++) {
+			if(arr[i] == elem) {
+				return i;
+			}
+		}
+		return -1;
 	}
 	
 	/*
@@ -14,7 +19,13 @@ public class Methods {
 	 *     numerical value.
 	 */
 	public static int findSmallestElement(int[] arr) {
-		return 0;
+		int smallest_Idx = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if(arr[i]<arr[smallest_Idx]) {
+				smallest_Idx = i;
+			}
+		}
+		return arr[smallest_Idx];
 	}
 	
 	/*
@@ -22,14 +33,28 @@ public class Methods {
 	 *     in arr.
 	 */
 	public static double averageIntArray(int[] arr) {
-		return 0;
+		int counter = 0;
+		for (int i = 0; i < arr.length; i++) {
+			counter+=arr[i];
+		}
+		return (double)counter/arr.length;
 	}
 	
 	/*
 	 * rearranges the elements of arr to be in ascending order
 	 */
 	public static void sortIntArray(int[] arr) {
-		
+		for (int i = 0; i < arr.length; i++) {
+			int smallest_Index = i;
+			for (int j = i; j < arr.length; j++) {
+				if(arr[j]<arr[smallest_Index]) {
+					smallest_Index = j;
+				}
+			}
+			int temp = arr[i];
+			arr[i] = arr[smallest_Index];
+			arr[smallest_Index] = temp;
+		}
 	}
 	
 	/*
@@ -37,7 +62,10 @@ public class Methods {
 	 * returns -1 if elem is not found in list.
 	 */
 	public static int findElementInArrayList(ArrayList<String> list, String elem) {
-		return 0;
+		for (int i = 0; i < list.size(); i++) {
+			if(list.get(i)==elem)
+				return i;
+		}return -1;
 	}
 	
 	/*
@@ -47,7 +75,15 @@ public class Methods {
 	 *    in list.
 	 */
 	public static String findShortestString(ArrayList<String> list) {
-		return null;
+		int stringMin_Idx = 0;
+		for (int i = 0; i < list.size(); i++) {
+			if(list.get(i).length()<list.get(stringMin_Idx).length()) {
+				stringMin_Idx = i;
+			}
+		}
+		return list.get(stringMin_Idx);
+		
+		
 	}
 	
 	/*
@@ -55,7 +91,11 @@ public class Methods {
 	 *     of each String in list.
 	 */
 	public static double averageStringLength(ArrayList<String> list) {
-		return 0;
+		int characterCounter = 0;
+		for (int i = 0; i < list.size(); i++) {
+			characterCounter+=list.get(i).length();
+		}
+		return (double)characterCounter/list.size();
 	}
 	
 	/*
@@ -63,7 +103,18 @@ public class Methods {
 	 *     use the String's compareTo method
 	 */
 	public static void sortStringArrayList(ArrayList<String> list) {
-		
+		String s = "asdfas";
+		for (int i = 0; i < list.size(); i++) {
+			int min_Idx = i;
+			for (int j = i; j < list.size(); j++) {
+				if(list.get(j).compareTo(list.get(min_Idx))<0) {
+					min_Idx = j;
+				}
+			}
+			String temp = list.get(i);
+			list.set(i, list.get(min_Idx));
+			list.set(min_Idx, temp);
+		}
 	}
 	
 	
